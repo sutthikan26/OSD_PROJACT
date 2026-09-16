@@ -1,0 +1,297 @@
+.appointment-notify-page {
+  display: grid;
+  gap: 14px;
+  --notify-line: #d6deea;
+  --notify-text: #223148;
+  --notify-subtle: #5d6e87;
+  --notify-due: #c1842b;
+  --notify-progress: #3569b6;
+  --notify-upcoming: #5f748f;
+}
+
+.notify-hero {
+  background: linear-gradient(165deg, #f8fbff 0%, #f3f7ff 100%);
+  border-color: #d2dceb;
+  border-radius: 10px;
+}
+
+.notify-title {
+  margin: 0;
+  color: var(--notify-text);
+  font-size: 22px;
+  letter-spacing: 0.1px;
+}
+
+.notify-subtitle {
+  margin: 6px 0 0;
+  color: var(--notify-subtle);
+  max-width: 860px;
+}
+
+.notify-summary-line {
+  margin: 8px 0 0;
+  color: #4d6283;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.notify-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.notify-stat {
+  border: 1px solid var(--notify-line);
+  border-radius: 8px;
+  padding: 9px 10px;
+  display: grid;
+  gap: 3px;
+  background: #ffffff;
+}
+
+.notify-stat span {
+  color: var(--notify-subtle);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.notify-stat strong {
+  color: var(--notify-text);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.notify-stat.due {
+  border-left: 3px solid var(--notify-due);
+}
+
+.notify-stat.progress {
+  border-left: 3px solid var(--notify-progress);
+}
+
+.notify-stat.upcoming {
+  border-left: 3px solid var(--notify-upcoming);
+}
+
+.notify-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.notify-empty-showcase {
+  border-radius: 10px;
+  border-color: #d8e1ef;
+  background: linear-gradient(180deg, #f9fbff 0%, #f4f8ff 100%);
+  min-height: 180px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.notify-empty-showcase h4 {
+  margin: 0;
+  color: #28415f;
+  font-size: 20px;
+}
+
+.notify-empty-showcase p {
+  margin: 0;
+  max-width: 620px;
+}
+
+.notify-empty-badge {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid #ccdaee;
+  background: #ffffff;
+  color: #4d6484;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.notify-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9px;
+  border-color: #d8e0ec;
+  box-shadow: none;
+}
+
+.notify-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--notify-line);
+}
+
+.notify-card h4 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--notify-text);
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e4eaf4;
+}
+
+.notify-badge {
+  border-radius: 999px;
+  font-size: 11px;
+  min-width: 26px;
+  text-align: center;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  background: #eef3fc;
+  color: #334b6f;
+}
+
+.notify-empty {
+  margin: 14px 0 4px;
+}
+
+.notify-list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 1px;
+}
+
+.notify-item {
+  display: grid;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dbe3f1;
+  background: #ffffff;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.notify-item:hover {
+  border-color: #c7d5e8;
+  background: #f9fbff;
+}
+
+.notify-item strong {
+  color: #24344e;
+  font-size: 14px;
+}
+
+.notify-meta {
+  margin: 0;
+  color: #50627d;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.notify-item button {
+  justify-self: start;
+  margin-top: 5px;
+  border-radius: 6px;
+}
+
+.notify-card.due {
+  border-color: #ecd3af;
+  background: #fff9f1;
+}
+
+.notify-card.due::before {
+  background: var(--notify-due);
+}
+
+.notify-card.due .notify-badge {
+  background: #fff0db;
+  color: #8b5813;
+  border-color: #f0ca96;
+}
+
+.notify-card.progress {
+  border-color: #cfdbf2;
+  background: #f4f8ff;
+}
+
+.notify-card.progress::before {
+  background: var(--notify-progress);
+}
+
+.notify-card.progress .notify-badge {
+  background: #e9f1ff;
+  color: #1f4f8f;
+  border-color: #c8daf7;
+}
+
+.notify-card.upcoming {
+  border-color: #d8e1ec;
+  background: #f8fbff;
+}
+
+.notify-card.upcoming::before {
+  background: var(--notify-upcoming);
+}
+
+.notify-card.upcoming .notify-badge {
+  background: #edf2f8;
+  color: #445c79;
+  border-color: #d4ddea;
+}
+
+@media (max-width: 1180px) {
+  .notify-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notify-card.upcoming {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .appointment-notify-page {
+    gap: 10px;
+  }
+
+  .notify-title {
+    font-size: 19px;
+  }
+
+  .notify-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .notify-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notify-card.upcoming {
+    grid-column: auto;
+  }
+
+  .notify-empty-showcase {
+    min-height: 160px;
+    padding: 16px;
+  }
+
+  .notify-empty-showcase h4 {
+    font-size: 17px;
+  }
+
+  .notify-list {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+}

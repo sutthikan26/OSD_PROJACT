@@ -1,0 +1,181 @@
+.sla-page {
+  display: grid;
+  gap: 14px;
+}
+
+.sla-summary-card h3,
+.sla-ranking-card h3,
+.sla-compliance-card h3 {
+  margin: 0 0 10px;
+}
+
+.sla-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sla-kpi-item {
+  border: 1px solid #dce4f1;
+  border-radius: 6px;
+  padding: 10px;
+  background: #f8fbff;
+  display: grid;
+  gap: 4px;
+}
+
+.sla-kpi-item span {
+  color: #637893;
+  font-size: 12px;
+}
+
+.sla-kpi-item strong {
+  font-size: 19px;
+  line-height: 1.2;
+  color: #223b5f;
+}
+
+.sla-kpi-item small {
+  color: #7087a3;
+  font-size: 11px;
+}
+
+.sla-kpi-item.compliance {
+  background: #edf4ff;
+}
+
+.sla-middle-grid {
+  gap: 14px;
+}
+
+.sla-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.sla-card-head h3 {
+  margin: 0;
+}
+
+.window-switch {
+  display: inline-flex;
+  border: 1px solid #cfd9ea;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.window-switch button {
+  border: 0;
+  border-right: 1px solid #cfd9ea;
+  border-radius: 0;
+  background: #f2f6fd;
+  color: #35527d;
+  padding: 5px 9px;
+  min-width: 46px;
+  justify-content: center;
+}
+
+.window-switch button:last-child {
+  border-right: 0;
+}
+
+.window-switch button.active {
+  background: #2f62b6;
+  color: #fff;
+}
+
+.sla-page .bar-row {
+  margin-bottom: 8px;
+}
+
+.response-fill {
+  background: #5e74a8;
+}
+
+.sla-ranking-card .table-wrap {
+  border-radius: 6px;
+}
+
+.sla-ranking-layout {
+  gap: 14px;
+}
+
+.sla-ranking-card tbody tr {
+  cursor: pointer;
+}
+
+.sla-ranking-card tbody tr.selected-row {
+  background: #eaf2ff;
+}
+
+.sla-drilldown-card h3 {
+  margin: 0 0 10px;
+}
+
+.sla-drilldown-kpis {
+  border: 1px solid #dce4f1;
+  border-radius: 6px;
+  background: #f8fbff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.sla-drilldown-kpis p {
+  margin: 4px 0;
+}
+
+.sla-compliance-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.sla-compliance-progress .bar-track {
+  height: 12px;
+}
+
+.compliance-track {
+  background: #e0e9f8;
+}
+
+.compliance-fill {
+  background: #3d6fbe;
+  height: 12px;
+}
+
+.sla-compliance-stats p {
+  margin: 6px 0;
+}
+
+@media (max-width: 1200px) {
+  .sla-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .sla-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sla-compliance-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sla-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .window-switch {
+    width: 100%;
+  }
+
+  .window-switch button {
+    flex: 1;
+  }
+}

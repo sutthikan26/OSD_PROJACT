@@ -1,0 +1,155 @@
+.maintenance-page .card h3 {
+  margin-top: 0;
+}
+
+.maintenance-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.maintenance-table-card table {
+  table-layout: auto;
+}
+
+.maintenance-due-card {
+  border-color: #f0c98e;
+  background: #fff3df;
+  color: #6e4312;
+}
+
+.maintenance-status.warn {
+  color: #7d4f16;
+  border-color: #e9cf96;
+  background: #fff3dc;
+}
+
+.maintenance-status.good {
+  color: #1f4f85;
+  border-color: #cadefb;
+  background: #eaf2ff;
+}
+
+.maintenance-meta {
+  display: grid;
+  gap: 2px;
+}
+
+.maintenance-meta small {
+  color: #6d7f97;
+}
+
+.maintenance-actions {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.maintenance-edit-btn,
+.maintenance-delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.maintenance-edit-btn {
+  min-width: 56px;
+  padding: 7px 12px;
+  background: #2f62b6;
+  border-color: #2f62b6;
+}
+
+.maintenance-edit-btn:hover:not(:disabled) {
+  background: #25539a;
+  border-color: #25539a;
+}
+
+.maintenance-delete-btn {
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  background: #b74343;
+  border-color: #b74343;
+}
+
+.maintenance-delete-btn:hover:not(:disabled) {
+  background: #9f3333;
+  border-color: #9f3333;
+}
+
+.maintenance-form {
+  gap: 10px;
+}
+
+.maintenance-form .field-title {
+  display: grid;
+  gap: 4px;
+}
+
+.maintenance-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.maintenance-row label {
+  display: grid;
+  gap: 4px;
+}
+
+.maintenance-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.maintenance-actions-row button {
+  min-width: 130px;
+  justify-content: center;
+}
+
+.maintenance-form-buttons {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .maintenance-page {
+    padding: 10px;
+  }
+
+  .maintenance-row {
+    grid-template-columns: 1fr;
+  }
+
+  .maintenance-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .maintenance-form-buttons {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .maintenance-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .maintenance-edit-btn,
+  .maintenance-delete-btn {
+    width: auto;
+  }
+}

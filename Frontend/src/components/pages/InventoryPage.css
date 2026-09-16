@@ -1,0 +1,130 @@
+.inventory-page input:disabled {
+  background: #f4f7fc;
+  color: #6f8097;
+}
+
+.inventory-page .inventory-search {
+  width: 100%;
+  max-width: 360px;
+  padding: 8px 12px;
+  border: 1px solid #d0d8e4;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  margin-bottom: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.inventory-page .inventory-search:focus {
+  border-color: #3b6cf7;
+}
+
+.inventory-page .add-asset-form {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.9fr 1fr 1.2fr auto;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+
+.inventory-page .add-asset-form input {
+  min-height: 36px;
+}
+
+.inventory-page .add-asset-form button {
+  align-self: center;
+  width: 104px;
+  justify-content: center;
+}
+
+.inventory-page table {
+  table-layout: fixed;
+}
+
+.inventory-page th:nth-child(1),
+.inventory-page td:nth-child(1) {
+  width: 17%;
+}
+
+.inventory-page th:nth-child(2),
+.inventory-page td:nth-child(2) {
+  width: 15%;
+}
+
+.inventory-page th:nth-child(3),
+.inventory-page td:nth-child(3) {
+  width: 13%;
+}
+
+.inventory-page th:nth-child(4),
+.inventory-page td:nth-child(4) {
+  width: 12%;
+}
+
+.inventory-page th:nth-child(5),
+.inventory-page td:nth-child(5) {
+  width: 27%;
+}
+
+.inventory-page th:nth-child(6),
+.inventory-page td:nth-child(6) {
+  width: 16%;
+}
+
+.inventory-page .inventory-actions {
+  display: inline-flex;
+  gap: 6px;
+  justify-content: flex-end;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.inventory-page table th:last-child,
+.inventory-page table td:last-child {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.inventory-page .delete-btn {
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  background: #b74343;
+  border-color: #b74343;
+}
+
+.inventory-page .delete-btn:hover {
+  background: #9f3333;
+  border-color: #9f3333;
+}
+
+@media (max-width: 1200px) {
+  .inventory-page .add-asset-form {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .inventory-page .add-asset-form button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .inventory-page {
+    padding: 10px;
+  }
+
+  .inventory-page .add-asset-form {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-page .add-asset-form button {
+    width: 100%;
+  }
+
+  .inventory-page .inventory-actions {
+    justify-content: flex-start;
+  }
+}

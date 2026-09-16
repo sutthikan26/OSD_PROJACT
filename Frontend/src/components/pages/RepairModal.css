@@ -1,0 +1,399 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 28, 48, 0.45);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-card {
+  width: min(100%, 1280px);
+  max-height: calc(100vh - 30px);
+  overflow: auto;
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  display: grid;
+  gap: 14px;
+  border: 1px solid #d8dfeb;
+  box-shadow: 0 14px 30px rgba(16, 28, 48, 0.18);
+}
+
+.wizard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.repair-modal .modal-card {
+  border-top: 4px solid #2f62b6;
+}
+
+.modal-title {
+  margin: 0;
+  margin-bottom: 2px;
+}
+
+.modal-title span,
+.kb-title svg {
+  display: inline-flex;
+  color: #2f62b6;
+}
+
+.modal-subtitle {
+  margin: 0;
+  color: #697a92;
+  font-size: 13px;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #dde5f2;
+  border-radius: 10px;
+  background: #f7faff;
+}
+
+.stepper-fragment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 62px;
+  padding: 9px 11px;
+  border-radius: 10px;
+  border: 1px solid #d2dced;
+  background: #fff;
+  color: #526683;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.step-index {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #c9d6eb;
+  background: #f4f8ff;
+  color: #34527f;
+  flex-shrink: 0;
+}
+
+.step-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.step-copy strong {
+  font-size: 13px;
+  color: #2a3e5c;
+}
+
+.step-copy small {
+  font-size: 11px;
+  color: #6d819f;
+}
+
+.step-item.done {
+  border-color: #86c8a5;
+  background: #edf9f2;
+}
+
+.step-item.done .step-index {
+  border-color: #62ae86;
+  background: #61b588;
+  color: #fff;
+}
+
+.step-item.current {
+  border-color: #6e95dc;
+  background: #eaf1ff;
+  box-shadow: 0 0 0 3px rgba(68, 114, 186, 0.14);
+  transform: translateY(-1px);
+}
+
+.step-item.current .step-index {
+  animation: stepPulse 1.8s ease-in-out infinite;
+}
+
+.step-line {
+  width: 34px;
+  height: 2px;
+  border-radius: 999px;
+  background: #cdd9ec;
+  transition: background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.step-line.filled {
+  background: #63b486;
+}
+
+.repair-modal .form-grid {
+  gap: 10px;
+}
+
+.step-panel {
+  padding: 12px;
+  border: 1px solid #dee6f3;
+  border-radius: 8px;
+  background: #fafcff;
+}
+
+.step-panel p {
+  margin: 0;
+  color: #2f3f55;
+}
+
+.step-panel button {
+  justify-self: start;
+}
+
+.repair-modal label {
+  display: grid;
+  gap: 4px;
+  color: #5d7089;
+  font-weight: 600;
+}
+
+.repair-modal textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.wizard-actions {
+  margin-top: 10px;
+}
+
+.validation-note {
+  margin: 8px 0 0;
+  color: #9b2f2f;
+  background: #fdecec;
+  border: 1px solid #efc5c5;
+  border-radius: 7px;
+  padding: 7px 9px;
+  font-size: 12px;
+}
+
+.kb-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.kb-panel .list {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.kb-root-cause {
+  background: #fff3e0;
+  border-left: 3px solid #ff9800;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #e65100;
+}
+
+.kb-root-cause .custom-detail {
+  font-size: 12px;
+  color: #e65100;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.kb-history-item {
+  background: #f5f5f5;
+  border-left: 3px solid #2f62b6;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.kb-device-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.kb-staff {
+  font-size: 11px;
+  color: #999;
+  font-weight: normal;
+}
+
+.kb-details {
+  margin: 2px 0;
+  color: #333;
+  line-height: 1.3;
+}
+
+.kb-label {
+  font-weight: 600;
+  color: #2f62b6;
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.pending-note {
+  margin: 0;
+  font-size: 12px;
+  color: #6a4b1f;
+  border: 1px solid #f1d9aa;
+  background: #fff6e7;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+@keyframes stepPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 98, 182, 0.25);
+    transform: scale(1);
+  }
+
+  60% {
+    box-shadow: 0 0 0 8px rgba(47, 98, 182, 0);
+    transform: scale(1.03);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 98, 182, 0);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-item,
+  .step-line,
+  .step-item.current .step-index {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Input and Select Styling */
+.repair-modal input,
+.repair-modal select,
+.repair-modal textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d2dced;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fff;
+  color: #2f3f55;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.repair-modal input:focus,
+.repair-modal select:focus,
+.repair-modal textarea:focus {
+  outline: none;
+  border-color: #6e95dc;
+  box-shadow: 0 0 0 3px rgba(68, 114, 186, 0.14);
+}
+
+.repair-modal select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 18px;
+  padding-right: 32px;
+}
+
+.repair-modal select optgroup {
+  color: #2f62b6;
+  font-weight: 600;
+}
+
+.repair-modal select option {
+  color: #2f3f55;
+  background: #fff;
+  padding: 4px 8px;
+}
+
+@media (max-width: 1080px) {
+  .modal-card {
+    padding: 18px;
+  }
+
+  .wizard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .stepper-fragment {
+    width: 100%;
+  }
+
+  .step-line {
+    display: none;
+  }
+
+  .modal-close-icon {
+    right: 10px;
+    top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-card {
+    padding: 14px;
+    max-height: calc(100vh - 20px);
+  }
+
+  .step-item {
+    min-height: 56px;
+    padding: 8px;
+  }
+}

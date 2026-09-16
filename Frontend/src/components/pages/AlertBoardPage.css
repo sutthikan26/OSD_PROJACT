@@ -1,0 +1,143 @@
+.alert-board-page th {
+  white-space: nowrap;
+}
+
+.alert-board-page .problem-cell {
+  min-width: 180px;
+  max-width: 300px;
+  white-space: normal;
+  word-break: break-word;
+  color: #444;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.alert-board-page .card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* Escalation queue table */
+.alert-board-page .escalation-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* คอลัมน์อุปกรณ์ — word-wrap ป้องกันล้น */
+.alert-board-page .escalation-table th:nth-child(1),
+.alert-board-page .escalation-table td:nth-child(1) {
+  width: 20%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* คอลัมน์ปัญหา */
+.alert-board-page .escalation-table th:nth-child(2),
+.alert-board-page .escalation-table td:nth-child(2) { width: 34%; }
+
+/* คอลัมน์ผลกระทบ */
+.alert-board-page .escalation-table th:nth-child(3),
+.alert-board-page .escalation-table td:nth-child(3) {
+  width: 13%;
+  text-align: center;
+}
+
+/* คอลัมน์เวลาที่เหลือ */
+.alert-board-page .escalation-table th:nth-child(4),
+.alert-board-page .escalation-table td:nth-child(4) {
+  width: 11%;
+  text-align: center;
+}
+
+/* คอลัมน์การจัดการ */
+.alert-board-page .escalation-table th:nth-child(5),
+.alert-board-page .escalation-table td:nth-child(5) {
+  width: 22%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.alert-board-page .card {
+  min-height: 320px;
+}
+
+.accept-lock-note {
+  margin: -2px 0 10px;
+  padding: 7px 10px;
+  border: 1px solid #f2d4a2;
+  border-radius: 8px;
+  background: #fff5e5;
+  color: #7a4a15;
+  font-size: 12px;
+}
+
+.alert-board-page .in-progress-card {
+  min-height: 260px;
+  grid-column: 1 / -1;
+}
+
+.progress-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.progress-badge.mine {
+  color: #1f5a41;
+  background: #e7f7ee;
+  border: 1px solid #b8e5ca;
+}
+
+.progress-badge.locked {
+  color: #7a4a15;
+  background: #fff3df;
+  border: 1px solid #f2d4a2;
+}
+
+.alert-board-page .alert-action-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.alert-board-page .alert-action-group button {
+  width: 88px;
+  white-space: nowrap;
+}
+
+.alert-board-page .secondary-action {
+  background: #f0f5ff;
+  color: #1f3f7a;
+  border: 1px solid #b8cdef;
+}
+
+.alert-board-page .secondary-action:hover:not(:disabled) {
+  background: #e2ecff;
+}
+
+@media (max-width: 1080px) {
+  .alert-board-page .card,
+  .alert-board-page .in-progress-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .alert-board-page .card {
+    padding: 10px;
+  }
+
+  .alert-board-page th,
+  .alert-board-page td {
+    padding: 7px;
+  }
+
+  .alert-board-page .section-title {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,101 @@
+name: osdnoc2-demo
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: osdnoc2-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root1234}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-noc_db}
+      MYSQL_USER: ${MYSQL_USER:-noc_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-noc_pass_1234}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./Backend/database/osdnoc2.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-root1234}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ./Backend
+    container_name: osdnoc2-backend
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
+      DB_HOST: mysql
+      DB_USER: ${MYSQL_USER:-noc_user}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-noc_pass_1234}
+      DB_NAME: ${MYSQL_DATABASE:-noc_db}
+      DB_POOL_SIZE: 10
+      ZABBIX_WEBHOOK_TOKEN: ${ZABBIX_WEBHOOK_TOKEN:-change-me}
+      ZABBIX_API_URL: ${ZABBIX_API_URL:-}
+      ZABBIX_API_TOKEN: ${ZABBIX_API_TOKEN:-}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:8081}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  web:
+    build:
+      context: ./Frontend
+    container_name: osdnoc2-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      - backend
+
+  # ── Virtual Switches ──────────────────────────────────────────────────────
+  # จำลอง Switch จริง 3 ตัว (nginx:alpine = ตัวแทน switch ที่มีไฟน้ำเงิน)
+  # หยุด container = switch ดับ  |  start container = switch กลับมา
+  sim-switch-1:
+    image: nginx:alpine
+    container_name: sim-switch-1
+    restart: unless-stopped
+
+  sim-switch-2:
+    image: nginx:alpine
+    container_name: sim-switch-2
+    restart: unless-stopped
+
+  sim-switch-3:
+    image: nginx:alpine
+    container_name: sim-switch-3
+    restart: unless-stopped
+
+  sim-switch-4:
+    image: nginx:alpine
+    container_name: sim-switch-4
+    restart: unless-stopped
+
+  # ── Switch Monitor (จำลอง Zabbix) ────────────────────────────────────────
+  # คอย ping switches ทุก 5 วิ
+  # ถ้า switch ไม่ตอบ → ยิง webhook ไปหา Backend  (เหมือน Zabbix ส่ง alert)
+  # ถ้า switch กลับมา  → ยิง webhook RESOLVED     (เหมือน Zabbix auto-close)
+  switch-monitor:
+    build:
+      context: ./simulate/monitor
+    container_name: switch-monitor
+    restart: unless-stopped
+    environment:
+      BACKEND_URL: http://backend:4000
+      ZABBIX_WEBHOOK_TOKEN: ${ZABBIX_WEBHOOK_TOKEN:-change-me}
+      CHECK_INTERVAL_MS: 5000
+    depends_on:
+      - backend
+      - sim-switch-1
+      - sim-switch-2
+      - sim-switch-3
+      - sim-switch-4
+
+volumes:
+  mysql_data:

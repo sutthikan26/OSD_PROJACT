@@ -1,0 +1,25 @@
+.notifications-page label {
+  display: block;
+}
+
+.notifications-page .zabbix-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .notifications-page {
+    padding: 10px;
+  }
+
+  .notifications-page .zabbix-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .notifications-page .zabbix-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}

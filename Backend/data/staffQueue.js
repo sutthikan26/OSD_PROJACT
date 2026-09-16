@@ -1,0 +1,48 @@
+const staffQueue = [
+  {
+    id: "s-01",
+    name: "Anan",
+    role: "admin",
+    isActive: true,
+    status: "Available",
+    currentDevice: null,
+    currentTicketId: null,
+    lastResponseSeconds: 142,
+    queueOrder: 1,
+  },
+  {
+    id: "s-02",
+    name: "Benz",
+    role: "admin",
+    isActive: true,
+    status: "Busy",
+    currentDevice: "SW-Core-01",
+    currentTicketId: "a-002",
+    lastResponseSeconds: 221,
+    queueOrder: 2,
+  },
+  {
+    id: "s-03",
+    name: "Chat",
+    role: "admin",
+    isActive: true,
+    status: "Available",
+    currentDevice: null,
+    currentTicketId: null,
+    lastResponseSeconds: 97,
+    queueOrder: 3,
+  },
+  {
+    id: "s-04",
+    name: "Dome",
+    role: "admin",
+    isActive: true,
+    status: "Busy",
+    currentDevice: "RTR-BKK-22",
+    currentTicketId: "a-001",
+    lastResponseSeconds: 269,
+    queueOrder: 4,
+  },
+];
+
+module.exports = staffQueue;

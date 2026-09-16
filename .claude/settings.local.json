@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(node -e \"require\\('./server.js'\\)\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":3000\\\\|:3001\\\\|:8081\\\\|:8080\")",
+      "Bash(mysql --version)",
+      "Bash(node -e ' *)",
+      "Bash(docker compose *)",
+      "Bash(kill %1)",
+      "Bash(xargs grep *)",
+      "Bash(curl -s -X POST http://localhost:4000/api/zabbix/webhook -H 'Content-Type: application/json' -H 'x-zabbix-token: change-me' -d '{ *)",
+      "Bash(curl -s -X POST http://localhost:4000/api/zabbix/webhook -H 'Content-Type: application/json' -H 'x-zabbix-token: 18cec446ce22857c1b7faa397b3ce3256964645cd7195c643eedff8510dcc7c4' -d '{ *)",
+      "Bash(docker exec *)",
+      "Bash(docker start *)",
+      "Bash(docker restart *)",
+      "Bash(docker stop *)",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(cd c:\\\\\\\\intrenship\\\\\\\\project1\\\\\\\\OSDNOC2\\\\\\\\OSDNOC2)",
+      "Bash(grep -E \"\\\\.js$|\\\\.json$|\\\\.md$\")",
+      "Bash(sed 's/.*router\\\\.//')",
+      "Bash(xargs wc *)"
+    ]
+  }
+}
