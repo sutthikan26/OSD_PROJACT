@@ -1,7 +1,7 @@
 import type { Role } from "./types";
 
-const configuredApiBase = (import.meta.env.VITE_API_BASE ?? "").replace(/\/+$/, "");
-const API_BASE = configuredApiBase || "";
+const envBase = (import.meta.env.VITE_API_BASE ?? import.meta.env.VITE_API_URL ?? "").replace(/\/+$/, "");
+const API_BASE = envBase || "https://osd-projact.onrender.com";
 
 interface RequestOptions extends RequestInit {
   role?: Role;
